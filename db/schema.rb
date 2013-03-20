@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304193036) do
+ActiveRecord::Schema.define(:version => 20130304200521) do
+
+  create_table "function_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "estimated_days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "functions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sub_system_id"
+    t.string   "ident"
+    t.text     "description"
+    t.integer  "function_type_id"
+  end
+
+  add_index "functions", ["function_type_id"], :name => "index_functions_on_function_type_id"
+  add_index "functions", ["sub_system_id"], :name => "index_functions_on_sub_system_id"
+
+  create_table "sub_systems", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40

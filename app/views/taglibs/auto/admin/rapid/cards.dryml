@@ -1,6 +1,42 @@
 <!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
 
 
+<def tag="card" for="Function">
+  <card class="function" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
+    <body: param>
+      <view:description param="description"/>
+      <view:sub_system param="creator"/>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="FunctionType">
+  <card class="function-type" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
+    <body: param>
+      <view:description param="description"/>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="SubSystem">
+  <card class="sub-system" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
+    <body: param>
+      <ht key="function.collection.count" count="&this.functions.size">
+         <count:functions param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
 <def tag="card" for="User">
   <card class="user" param="default" merge>
     <header: param>

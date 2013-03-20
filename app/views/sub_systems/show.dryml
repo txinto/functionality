@@ -1,0 +1,12 @@
+<show-page>
+  <collection: replace>
+  <table-plus with="&@functions" fields="this,function_type">
+    <prepend-header:>
+      <div class="filter">
+        Display by function_type: <filter-menu param-name="function_type" options="&FunctionType.all"/>
+      </div>
+    </prepend-header:>
+    <empty-message:>No functions match your criteria</empty-message:>
+  </table-plus>
+  </collection:>
+</show-page>

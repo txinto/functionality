@@ -5,6 +5,28 @@
 Functionality::Application.routes.draw do
 
 
+  # Resource routes for controller functions
+  resources :functions, :only => [:new, :edit, :show, :create, :update, :destroy]
+
+  # Owner routes for controller functions
+  resources :sub_systems, :as => :sub_system, :only => [] do
+    resources :functions, :only => [] do
+      get 'new', :on => :new, :action => 'new_for_sub_system'
+      collection do
+        post 'create', :action => 'create_for_sub_system'
+      end
+    end
+  end
+
+
+  # Resource routes for controller function_types
+  resources :function_types
+
+
+  # Resource routes for controller sub_systems
+  resources :sub_systems
+
+
   # Resource routes for controller users
   resources :users, :only => [:edit, :show, :create, :update, :destroy] do
     collection do
